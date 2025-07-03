@@ -1,5 +1,6 @@
 import * as mc from "@minecraft/server";
 
+export type DatabaseResult<T> = { id: string; data: T };
 export type StorageType = mc.World | mc.Entity | mc.Player | mc.ItemStack;
 export type CollectionValidator<T> = { [K in keyof T]: (value: T[K]) => boolean };
 export type SortDirection = 'asc' | 'desc';

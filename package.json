@@ -5,15 +5,12 @@
   "main": "dist/index.js",
   "license": "GPL-3.0-only-3.0",
   "scripts": {
-    "build": "webpack --mode production",
-    "dev": "webpack --mode development --watch"
+    "build": "tsc",
+    "dev": "tsc -w"
   },
   "author": "sausage404",
   "devDependencies": {
-    "@minecraft/server": "^2.1.0-beta.1.21.90-stable",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^6.0.1",
-    "ts-loader": "^9.5.1"
+    "@minecraft/server": "^2.1.0-beta.1.21.90-stable"
   },
   "repository": {
     "type": "git",

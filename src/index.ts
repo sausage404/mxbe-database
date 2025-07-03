@@ -365,11 +365,7 @@ export default class Database<T> {
     public findById(id: string): { id: string; data: T } {
         const data = this.data.get(id);
         if (!data) {
-            throw new DatabaseError(
-                'DOCUMENT_NOT_FOUND',
-                'Document not found',
-                { id }
-            );
+            return null;
         }
         return { id, data };
     }
@@ -378,10 +374,7 @@ export default class Database<T> {
         try {
             const result = this.findMany(predicate)[0];
             if (!result) {
-                throw new DatabaseError(
-                    'DOCUMENT_NOT_FOUND',
-                    'No document found matching predicate'
-                );
+                return null;
             }
             return result;
         } catch (error) {

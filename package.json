@@ -1,8 +1,8 @@
 {
   "name": "@mxbe/database",
   "description": "This is database for minecraft bedrock deverlopment",
-  "version": "0.0.2",
-  "main": "dist/bundle.js",
+  "version": "0.0.3",
+  "main": "dist/index.js",
   "license": "GPL-3.0-only-3.0",
   "scripts": {
     "build": "webpack --mode production",

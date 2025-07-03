@@ -1,4 +1,5 @@
-import { CollectionValidator, FilterCondition, SortOptions, StorageType } from "./types";
+import * as types from "./types";
+export * from "./types";
 import { DatabaseError } from "./errors";
 
 export default class Database<T> {
@@ -6,8 +7,8 @@ export default class Database<T> {
 
     constructor(
         private collectionName: string,
-        private storageType: StorageType,
-        private collectionValidators?: CollectionValidator<T>
+        private storageType: types.StorageType,
+        private collectionValidators?: types.CollectionValidator<T>
     ) {
         if (collectionName.length < 1 || collectionName.length > 16) {
             throw new DatabaseError(
@@ -118,7 +119,7 @@ export default class Database<T> {
         return true;
     }
 
-    private evaluateCondition(data: T, condition: FilterCondition<T>): boolean {
+    private evaluateCondition(data: T, condition: types.FilterCondition<T>): boolean {
         try {
             const value = data[condition.field];
             const conditionValue = condition.value;
@@ -445,7 +446,7 @@ export default class Database<T> {
         }
     }
 
-    public query(conditions: FilterCondition<T>[], sort?: SortOptions<T>, limit?: number): Array<{ id: string; data: T }> {
+    public query(conditions: types.FilterCondition<T>[], sort?: types.SortOptions<T>, limit?: number): Array<{ id: string; data: T }> {
         try {
             if (!Array.isArray(conditions)) {
                 throw new DatabaseError(

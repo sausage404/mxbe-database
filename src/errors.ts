@@ -23,8 +23,8 @@ export class DatabaseError extends Error {
 
         Object.setPrototypeOf(this, DatabaseError.prototype);
 
-        if (Error.captureStackTrace) {
-            Error.captureStackTrace(this, DatabaseError);
+        if (typeof (Error as any).captureStackTrace === 'function') {
+            (Error as any).captureStackTrace(this, DatabaseError);
         }
 
         this.name = 'DatabaseError';
